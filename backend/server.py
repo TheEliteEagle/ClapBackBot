@@ -9,7 +9,7 @@ CORS(server)
 @server.route('/comeback', methods=["POST"])
 def handle_comeback():
     
-    comeback = generate(request.form['roast'])
+    comeback = generate(request.get_json()['roast'])
 
     return jsonify({'comeback': comeback})
 
