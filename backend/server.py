@@ -1,14 +1,16 @@
 from flask import Flask, jsonify, request
+from flask_cors import CORS
 from generate_response import generate
 
 
 server = Flask(__name__)
+CORS(server)
 
 @server.route('/comeback', methods=["POST"])
 def handle_comeback():
     
     comeback = generate(request.form['roast'])
-    
+
     return jsonify({'comeback': comeback})
 
 if __name__ == '__main__':
