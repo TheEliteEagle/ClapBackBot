@@ -1,0 +1,5 @@
+Flask
+flask_cors
+transformers
+# leave out torch, as it is included in the docker image used
+# if running locally, this must be installed manually

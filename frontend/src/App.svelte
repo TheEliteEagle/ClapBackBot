@@ -2,8 +2,7 @@
   import Submission from './lib/Submission.svelte'
   import character_image from './assets/character.png'
 
-  // read the comeback from submission.svelteHTML
-  let comeback= 'I\'m ComeBackBot and I will generate you a comeback to a roast';
+let comeback= 'I\'m ClapBackBot and I will generate you a comeback to a roast';
 </script>
 
 
