@@ -1,6 +1,8 @@
 <script>
+    // get comeback from flask server
+
     let user_input = '';
-    let comeback = '';
+    export let comeback = '';
 
     async function handleSubmit(event) {
 
@@ -28,7 +30,6 @@
         }
 
     }
-
 </script>
 
 <form on:submit={handleSubmit}>
@@ -36,4 +37,3 @@
   <button type="submit">Send</button>
 </form>
 
-<p>{comeback}</p>
