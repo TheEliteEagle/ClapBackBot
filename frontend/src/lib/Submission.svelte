@@ -11,7 +11,7 @@
         try{
             comeback = 'Thinking...';
             const response = await fetch(
-                '/comeback',
+                'http://localhost:5000/comeback', // TODO assign dynamically instead of hardcoding
                 {
                     method:'POST',
                     headers: {"Content-Type": "application/json"}, 
