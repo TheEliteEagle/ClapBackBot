@@ -1,10 +1,17 @@
-from transformers import pipeline
+from dotenv import load_dotenv
+import os
+import google.generativeai as genai
 
-model = pipeline("text-generation", model="deepseek-ai/DeepSeek-R1-Distill-Qwen-1.5B", device=0)
-SYSTEM_PROMPT = "return a clever comeback to the users roast"
+
+# setup AI model
+system_prompt = "return a clever comeback to the users roast:"
+load_dotenv(".env.local")
+genai.configure(api_key= os.getenv("API_KEY"))
+model = genai.GenerativeModel(system_instruction= system_prompt)
+
 
 def generate(roast:str) -> str:
 
-    output = model(f"{SYSTEM_PROMPT} User roast: {roast} Comeback:")
-
-    return output[-1]["generated_text"].split("Comeback:", 1)[1].strip()
+    # TODO improve using modern methods
+    output = model.generate_content(roast).text
+    return output
