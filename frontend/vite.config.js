@@ -5,6 +5,6 @@ import { svelte } from '@sveltejs/vite-plugin-svelte'
 export default defineConfig({
   plugins: [svelte()],
   server: {
-    proxy: {'/comeback': 'http://localhost:5000'}
+    proxy: {'/comeback': 'http://backend:5000'}
   }
 })
