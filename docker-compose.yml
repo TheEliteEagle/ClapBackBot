@@ -6,6 +6,10 @@ services:
       dockerfile: Dockerfile-frontend
     ports:
       - "5173:5173"
+    depends_on:
+      - backend
+    networks:
+      - clapbackbot-network
   
   backend:
     build:
@@ -17,3 +21,9 @@ services:
       - API_KEY=${API_KEY}
     ports:
       - "5000:5000"
+    networks:
+      - clapbackbot-network
+    
+networks:
+  clapbackbot-network:
+    driver: bridge
