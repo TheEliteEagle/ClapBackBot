@@ -19,6 +19,7 @@ services:
         API_KEY: ${API_KEY}
     environment:
       - API_KEY=${API_KEY}
+      - BACKEND_MODE=${BACKEND_MODE}
     ports:
       - "5000:5000"
     networks:
