@@ -5,7 +5,14 @@ COPY . .
 RUN pip install --no-cache-dir -r requirements.txt
 
 ARG API_KEY
-RUN test -n "$API_KEY" || (echo "ERROR: missing build argument API_KEY" && exit 1)
+ARG BACKEND_MODE
+
+# if running in lite mode, check api key is not empty
+RUN if [ "$BACKEND_MODE" = "lite" ]; then \
+        if [ -z "$API_KEY" ]; then \
+            echo "ERROR: missing required build argument API_KEY for running in lite mode" && exit 1; \
+        fi; \
+    fi
 
 EXPOSE 5000
 CMD ["python3", "server.py"]
