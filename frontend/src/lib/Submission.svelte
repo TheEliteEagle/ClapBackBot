@@ -33,7 +33,7 @@
 </script>
 
 <form on:submit={handleSubmit}>
-  <input bind:value={user_input} placeholder="Enter the roast" />
+  <input bind:value={user_input} placeholder="Enter the roast" required/>
   <button type="submit">Send</button>
 </form>
 
