@@ -5,7 +5,7 @@ COPY . .
 RUN pip install --no-cache-dir -r requirements.txt
 
 ARG API_KEY
-ENV API_KEY = $API_KEY
+RUN test -n "$API_KEY" || (echo "ERROR: missing build argument API_KEY" && exit 1)
 
 EXPOSE 5000
 CMD ["python3", "server.py"]
